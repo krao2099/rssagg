@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 	"log"
+	"net/http"
 	"os"
 
-	"github.com/joho/godotenv"
 	"github.com/go-chi/chi"
-	"github.com/go-chi/cors"
+	"github.com/joho/godotenv"
 )
 
 func main() {
@@ -24,7 +24,7 @@ func main() {
 
 	srv := &http.Server{
 		Handler: router,
-		Addr:	 ":" + portString,
+		Addr:    ":" + portString,
 	}
 
 	log.Printf("Server starting on port %v", portString)
@@ -34,4 +34,5 @@ func main() {
 	}
 
 	fmt.Println("PORT:", portString)
+
 }
